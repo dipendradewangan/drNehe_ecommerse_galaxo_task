@@ -1,0 +1,26 @@
+/* footer start */
+*{
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.footer{
+    width: 100%;
+    background-color: #111111;
+    margin-top: 50px;
+    color: white;
+    
+}
+
+.footer .footer-content{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.lower-footer{
+    display: flex;
+    justify-content: space-between;
+}

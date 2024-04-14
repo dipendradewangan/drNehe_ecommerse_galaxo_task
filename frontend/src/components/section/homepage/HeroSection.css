@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+.footer{
+    font-family: Playfair;
+}
+
+
+/* video section */
+.videoSection{
+    width: 100%;
+    height: 450px;
+}
+
+.videoLayer{
+    width: 100%;
+    background-color: red;
+    height: 100%;
+}
+
+.videoSection .videoSectionUpperLayer{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.videoSectionUpperLayer .welcome-box{
+    
+    color : white
+
+}
+
+.welcome-box .line-one{
+    font-size: 15px;
+    margin-bottom: 10px;
+
+}
+
+
+
+.welcome-box .line-two  {
+    font-size: 80px;
+    font-weight: bold;
+    font-family: Playfair;
+    margin: 0;
+    padding: 0;
+    line-height: 60px;
+    margin-top: 20px;
+
+}
+
+.welcome-box .line-three {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Playfair;
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+
+}
+
+.welcome-box .shop-now-btn {
+    padding: 10px;
+    width: 150px;
+    height: 50;
+    border: none;
+    margin-top: 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    border: 2px solid white;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+
+
+.welcome-box .shop-now-btn:hover{
+    border: 2px solid black;
+}
+
+.social-media-box
+{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.social-media-box .social-btn{
+    width: 35px;
+    height: 35px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    border : 3px solid white;
+    font-size: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+.social-media-box .social-btn:hover{
+    border: 3px solid #ECD39D;
+    color: #ECD39D;
+}
+
+.facebook-btn::before{
+    content: 'Facebook';
+    position: absolute;
+    left: -70px;    
+    display: none;
+}
+
+.linkedin-btn::before{
+    content: 'Linkedin';
+    position: absolute;
+    left: -70px;    
+    display: none;
+}
+
+.instagram-btn::before{
+    content: 'Instagram';
+    position: absolute;
+    left: -70px;    
+    display: none;
+}
+
+.youtube-btn::before{
+    content: 'Youtube';
+    position: absolute;
+    left: -70px;    
+    display: none;
+}
+
+.social-btn:hover::before{
+    display: block;
+}
+/* image section */
+.imagesSection{
+    display: flex;
+    background-color: #111111;
+    color: white;
+}
+
+.imagesSection .img1{
+    width: 35%;
+}
+
+
+.imagesSection .img2{
+    width: 25%;
+}
+
+
+.imagesSection .aboutSection{
+    width: 40%;
+    padding: 40px;
+}
+
+.aboutSection .line-one{
+    font-family: calibri;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.aboutSection .line-two{
+    font-family: Playfair;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.aboutSection .line-three{
+    font-family: calibri;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 10px;
+    color: rgb(199, 197, 197);
+}
+
+.know-more-btn{
+    width: 150px;
+    height: 50px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    background-color: #ECD39D;
+    color: black;
+    transition: 0.3s;
+}
+
+.know-more-btn:hover{
+    background-color: #e9ba55;
+}
