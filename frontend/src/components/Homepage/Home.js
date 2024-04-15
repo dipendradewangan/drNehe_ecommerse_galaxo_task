@@ -5,9 +5,9 @@ import Footer from './footer/Footer'
 const Home = () => {
     return (
         <div>
-            <Header/>
-            <Section/>
-            <Footer/>
+            <Header />
+            <Section />
+            <Footer />
         </div>
     )
 }
