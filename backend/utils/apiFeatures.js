@@ -23,23 +23,32 @@ class ApiFeatures {
     filter() {
         const queryCopy = { ...this.queryStr }
 
-        console.log(queryCopy)
-        
+
         const removeFields = ["keyword", "page", "limit"]
-        
-        removeFields.forEach( key => delete queryCopy[key])
-        
-        console.log(queryCopy)
+
+        removeFields.forEach(key => delete queryCopy[key])
 
         let queryStr = JSON.stringify(queryCopy)
-        console.log(queryStr)
 
-        queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, (key)=> `$${key}`)
-        console.log(queryStr)
+        queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, (key) => `$${key}`)
+
         this.query = this.query.find(JSON.parse(queryStr))
-        console.log(this.query)
 
         return this
+    }
+
+
+    // pagination
+
+    pagination(resultPerPage) {
+
+        const currentPage = Number(this.queryStr.page) || 1
+
+        const skip = resultPerPage * (currentPage - 1)
+
+        this.query = this.query.limit(resultPerPage).skip(skip);
+
+        return this;
     }
 }
 
