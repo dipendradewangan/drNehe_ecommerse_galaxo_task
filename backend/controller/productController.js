@@ -5,6 +5,9 @@ const ApiFeatures = require("../utils/apiFeatures")
 
 // create product
 exports.createProduct = catchAsyncError(async (req, res, next) => {
+
+    req.body.createdUser = req.user.id
+    console.log(req.body)
     const product = await Product.create(req.body)
 
     res.status(201).json({
@@ -51,6 +54,14 @@ exports.updateProduct = catchAsyncError(async (req, res, next) => {
     if (!product) {
         return next(new ErrorHandler("Product Not found!", 404))
     }
+
+    // set udateUser and updateDate and time
+
+    req.body.updatedUser = req.user.id;
+    req.body.updatedAt = new Date(Date.now())
+
+    console.log(req.body)
+    
 
     product = await Product.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
