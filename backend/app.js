@@ -9,6 +9,7 @@ const errorMiddleWare = require('./middleware/error')
 
 const productRoute = require("./route/productRoute");
 const userRoute = require("./route/userRoute")
+const orderRoute = require("./route/orderRoute")
 
 
 // express app
@@ -22,8 +23,9 @@ app.use(cookieParser())
 
 app.use("/api/v1", productRoute)
 
-
 app.use("/api/v1", userRoute)
+
+app.use("/api/v1", orderRoute)
 
 // middleware for error
 app.use(errorMiddleWare)
