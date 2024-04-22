@@ -1,7 +1,7 @@
 const router = require("express").Router()
 
 // import all internal modules
-const {createProduct, getAllProducts, getProductDetails, updateProduct, deleteProduct } = require("../controller/productController")
+const {createProduct, getAllProducts, getProductDetails, updateProduct, deleteProduct, createProductReview, getProductReviews, delelteProductReview } = require("../controller/productController")
 const { isAuthenticateUser, authorisedRoles } = require("../middleware/auth")
 
 // create product
@@ -17,5 +17,12 @@ router
 .delete(isAuthenticateUser, authorisedRoles("admin"), deleteProduct)
 .get(getProductDetails)
 
+
+router.route("/reviews").put(isAuthenticateUser, createProductReview)
+
+router.route("/reviews").get(isAuthenticateUser, getProductReviews)
+
+
+router.route("/reviews").delete(isAuthenticateUser, delelteProductReview)
 
 module.exports = router
