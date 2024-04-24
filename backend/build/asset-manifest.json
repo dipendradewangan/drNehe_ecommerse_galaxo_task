@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.064937a1.css",
+    "main.js": "/static/js/main.af1f8799.js",
+    "static/js/453.8ab44547.chunk.js": "/static/js/453.8ab44547.chunk.js",
+    "static/media/about-2.png": "/static/media/about-2.27a9dd05ed2edc9efc6c.png",
+    "static/media/about-3.png": "/static/media/about-3.98d286e5391669a42afb.png",
+    "static/media/center-hair-oil.png": "/static/media/center-hair-oil.9419a5381ee9f3110fc2.png",
+    "static/media/bannerImage.jpeg": "/static/media/bannerImage.34e65c49a8d64c739e90.jpeg",
+    "static/media/logo.png": "/static/media/logo.fc58ef7b0a8fe6e279e1.png",
+    "static/media/redux.cjs": "/static/media/redux.7edfc461ab353f1712ab.cjs",
+    "static/media/catelog2.jpg": "/static/media/catelog2.ee611a96647f23b03356.jpg",
+    "static/media/catelog1.jpg": "/static/media/catelog1.7c5877e0273eb052f859.jpg",
+    "static/media/catelog4.jpg": "/static/media/catelog4.1ebb20f124e9350c6a90.jpg",
+    "index.html": "/index.html",
+    "main.064937a1.css.map": "/static/css/main.064937a1.css.map",
+    "main.af1f8799.js.map": "/static/js/main.af1f8799.js.map",
+    "453.8ab44547.chunk.js.map": "/static/js/453.8ab44547.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.064937a1.css",
+    "static/js/main.af1f8799.js"
+  ]
+}
