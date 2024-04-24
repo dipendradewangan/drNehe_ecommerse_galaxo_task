@@ -10,10 +10,10 @@ import AboutPage from "./components/about/AboutPage";
 import BlogsPage from "./components/blogs/BlogsPage";
 import OilsPage from "./components/Category/oils/OilsPage";
 import FacecarePage from "./components/Category/facecare/FacecarePage";
-import TermAndConditionPage from "./components/Homepage/footer/termAndCondition/TermAndConditionPage";
-import PrivacyPolicyPage from "./components/Homepage/footer/privacyPolicy/PrivacyPolicyPage";
-import ShippingPolicyPage from "./components/Homepage/footer/shippingPolicy/ShippingPolicyPage";
-import ReturnPolicyPage from "./components/Homepage/footer/returnPolicy/ReturnPolicyPage";
+import TermAndConditionPage from "./components/Homepage/Footer/termAndCondition/TermAndConditionPage";
+import PrivacyPolicyPage from "./components/Homepage/Footer/privacyPolicy/PrivacyPolicyPage";
+import ShippingPolicyPage from "./components/Homepage/Footer/shippingPolicy/ShippingPolicyPage";
+import ReturnPolicyPage from "./components/Homepage/Footer/returnPolicy/ReturnPolicyPage";
 
 const router = createBrowserRouter([
 

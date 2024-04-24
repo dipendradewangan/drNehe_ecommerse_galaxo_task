@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from '../../Homepage/header/Header'
+import Header from '../../Homepage/Header/Header'
 
-import Footer from '../../Homepage/footer/Footer'
+import Footer from '../../Homepage/Footer/Footer'
 const RegisterPage = () => {
     return (
         <div>
