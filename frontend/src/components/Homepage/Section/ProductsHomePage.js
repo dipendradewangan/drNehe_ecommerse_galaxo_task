@@ -21,8 +21,8 @@ const ProductsHomePage = () => {
 
                             {/* all featured products list */}
                             {
-                                featuredCategories.map((prod) =>
-                                    <div className='featured-category-product'>
+                                featuredCategories.map((prod,index) =>
+                                    <div key={index} className='featured-category-product'>
                                         <div className='product-image-container'>
                                             <img className={prod.images} alt='product' />
                                         </div>
@@ -116,20 +116,20 @@ const ProductsHomePage = () => {
                     <h1><span style={{ color: '#ECD39C' }}>Top</span> Selling</h1>
                     <div className='top-sellling-products-container'>
                         <button className='btn-prev'>
-                            <i class="fa-solid fa-chevron-left"></i>
+                            <i className="fa-solid fa-chevron-left"></i>
                         </button>
                         <div className='container'>
 
                             {/* all product list */}
                             {
-                                topSellingProducts.map((prod) => <div className='product-main-box'>
+                                topSellingProducts.map((prod, index) => <div key={index} className='product-main-box'>
                                     <div className='product-img-box'>
                                         <div className='btns-cart-wishlist'>
                                             <button>
-                                                <i class="fa-regular fa-heart"></i>
+                                                <i className="fa-regular fa-heart"></i>
                                             </button>
                                             <button>
-                                                <i class="fas fa-shopping-cart"></i>
+                                                <i className="fas fa-shopping-cart"></i>
                                             </button>
                                         </div>
                                         <img className='product-img' src={prod.image} alt='product' />
@@ -137,10 +137,10 @@ const ProductsHomePage = () => {
                                     <p className='product-name'>Dr. Neha's Teeth Care</p>
                                     <div className='product-price'>
                                         <p className='actual-price'>
-                                            <i class="fa-solid fa-indian-rupee-sign"></i> {12345}
+                                            <i className="fa-solid fa-indian-rupee-sign"></i> {12345}
                                         </p>
                                         <p className='cancel-price'>
-                                            <i class="fa-solid fa-indian-rupee-sign"></i> {12345}
+                                            <i className="fa-solid fa-indian-rupee-sign"></i> {12345}
                                         </p>
                                     </div>
                                 </div>)
@@ -149,10 +149,10 @@ const ProductsHomePage = () => {
                                 <div className='product-img-box'>
                                     <div className='btns-cart-wishlist'>
                                         <button>
-                                            <i class="fa-regular fa-heart"></i>
+                                            <i className="fa-regular fa-heart"></i>
                                         </button>
                                         <button>
-                                            <i class="fas fa-shopping-cart"></i>
+                                            <i className="fas fa-shopping-cart"></i>
                                         </button>
                                     </div>
                                     <img className='product-img' src='https://www.zeldadungeon.net/wiki/images/thumb/f/f5/Link_-_TotK_key_art.png/400px-Link_-_TotK_key_art.png' alt='product' />
@@ -160,10 +160,10 @@ const ProductsHomePage = () => {
                                 <p className='product-name'>Dr. Neha's Teeth Care</p>
                                 <div className='product-price'>
                                     <p className='actual-price'>
-                                        <i class="fa-solid fa-indian-rupee-sign"></i> {12345}
+                                        <i className="fa-solid fa-indian-rupee-sign"></i> {12345}
                                     </p>
                                     <p className='cancel-price'>
-                                        <i class="fa-solid fa-indian-rupee-sign"></i> {12345}
+                                        <i className="fa-solid fa-indian-rupee-sign"></i> {12345}
                                     </p>
                                 </div>
                             </div>
@@ -172,7 +172,7 @@ const ProductsHomePage = () => {
                         </div>
 
                         <button className='btn-next'>
-                            <i class="fa-solid fa-chevron-right"></i>
+                            <i className="fa-solid fa-chevron-right"></i>
                         </button>
 
                     </div>
@@ -185,7 +185,7 @@ const ProductsHomePage = () => {
                         <h1 className='heading'>Trending Products</h1>
                         <div className='all-trending-product-box '>
                             {
-                                TrendingProducts.map((prod) => <div className='productBox'>
+                                TrendingProducts.map((prod,index) => <div key={index} className='productBox'>
                                     <div className='imageBox'>
                                         <img src={prod.image} alt='product' />
                                     </div>
@@ -195,10 +195,10 @@ const ProductsHomePage = () => {
                                         </p>
                                         <div className='priceBox'>
                                             <p className='actual-price f-5'>
-                                                <i class="fa-solid fa-indian-rupee-sign fs-5"></i> {prod.actualPrice}
+                                                <i className="fa-solid fa-indian-rupee-sign fs-5"></i> {prod.actualPrice}
                                             </p>
                                             <p className='cancel-price'>
-                                                <i class="fa-solid fa-indian-rupee-sign fs-7"></i> {prod.cancelPrice}
+                                                <i className="fa-solid fa-indian-rupee-sign fs-7"></i> {prod.cancelPrice}
                                             </p>
                                         </div>
                                     </div>
@@ -215,7 +215,7 @@ const ProductsHomePage = () => {
                         <h1 className='heading'>Recommend Products</h1>
                         <div className='all-trending-product-box '>
                             {
-                                RecommendedProducts.map((prod) => <div className='productBox'>
+                                RecommendedProducts.map((prod, index) => <div key={index} className='productBox'>
                                     <div className='imageBox'>
                                         <img src={prod.image} alt='product' />
                                     </div>
@@ -225,10 +225,10 @@ const ProductsHomePage = () => {
                                         </p>
                                         <div className='priceBox'>
                                             <p className='actual-price f-5'>
-                                                <i class="fa-solid fa-indian-rupee-sign fs-5"></i> {prod.actualPrice}
+                                                <i className="fa-solid fa-indian-rupee-sign fs-5"></i> {prod.actualPrice}
                                             </p>
                                             <p className='cancel-price'>
-                                                <i class="fa-solid fa-indian-rupee-sign fs-7"></i> {prod.cancelPrice}
+                                                <i className="fa-solid fa-indian-rupee-sign fs-7"></i> {prod.cancelPrice}
                                             </p>
                                         </div>
                                     </div>
@@ -244,7 +244,7 @@ const ProductsHomePage = () => {
                         <h1 className='heading'>Featured Products</h1>
                         <div className='all-trending-product-box '>
                             {
-                                featuredProducts.map((prod) => <div className='productBox'>
+                                featuredProducts.map((prod,index) => <div key={index} className='productBox'>
                                     <div className='imageBox'>
                                         <img src={prod.image} alt='product' />
                                     </div>
@@ -254,10 +254,10 @@ const ProductsHomePage = () => {
                                         </p>
                                         <div className='priceBox'>
                                             <p className='actual-price f-5'>
-                                                <i class="fa-solid fa-indian-rupee-sign fs-5"></i> {prod.actualPrice}
+                                                <i className="fa-solid fa-indian-rupee-sign fs-5"></i> {prod.actualPrice}
                                             </p>
                                             <p className='cancel-price'>
-                                                <i class="fa-solid fa-indian-rupee-sign fs-7"></i> {prod.cancelPrice}
+                                                <i className="fa-solid fa-indian-rupee-sign fs-7"></i> {prod.cancelPrice}
                                             </p>
                                         </div>
                                     </div>

@@ -14,6 +14,7 @@ import TermAndConditionPage from "./components/Homepage/Footer/termAndCondition/
 import PrivacyPolicyPage from "./components/Homepage/Footer/privacyPolicy/PrivacyPolicyPage";
 import ShippingPolicyPage from "./components/Homepage/Footer/shippingPolicy/ShippingPolicyPage";
 import ReturnPolicyPage from "./components/Homepage/Footer/returnPolicy/ReturnPolicyPage";
+import Products from "./components/products/Products";
 
 const router = createBrowserRouter([
 
@@ -22,6 +23,12 @@ const router = createBrowserRouter([
     path : "/",
     element : (
       <Home/>
+    )
+  },
+  {
+    path : "/products",
+    element : (
+      <Products/>
     )
   },
   {

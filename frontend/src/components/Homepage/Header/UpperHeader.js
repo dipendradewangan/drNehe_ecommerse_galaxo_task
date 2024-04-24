@@ -19,14 +19,17 @@ const UpperHeader = () => {
 
                     <ul className='menu-list'>
                         <li>
-                            <Link to='/category/oil' className='menu-link'>Oils <i class="fa-solid fa-caret-down icon-menu"></i></Link>
+                            <Link to='/category/oil' className='menu-link'>Oils <i className="fa-solid fa-caret-down icon-menu"></i></Link>
                             <div className='submenu-container'>
                                 <Link to='/'>Hair Oils</Link>
                                 <Link to='/'>Joint Pain Oils</Link>
                             </div>
                         </li>
                         <li>
-                            <Link to='/category/face-care' className='menu-link'>Face Care <i class="fa-solid fa-caret-down icon-menu"></i></Link>
+                            <Link to='/products' className='menu-link'>All Products<i className="fa-solid fa-caret-down icon-menu"></i></Link>
+                        </li>
+                        <li>
+                            <Link to='/category/face-care' className='menu-link'>Face Care <i className="fa-solid fa-caret-down icon-menu"></i></Link>
                             <div className='submenu-container'>
                                 <Link to='/'>Face Care</Link>
                             </div>
