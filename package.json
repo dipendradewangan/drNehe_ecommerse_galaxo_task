@@ -21,6 +21,6 @@
     "nodemon": "^3.1.0",
     "validator": "^13.11.0"
   },
-  "proxy" : "http://localhost:3000"
+  "proxy" : "https://task-galaxo-clone-dr-neha-health-care.vercel.app/t:3000"
   
 }
