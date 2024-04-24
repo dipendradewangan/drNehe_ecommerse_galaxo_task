@@ -17,20 +17,20 @@ const HeroSection = () => {
                             <p className='line-one'>WELCOME TO DR. NEHA'S CARE</p>
                             <p className='line-two'>Beauty & Skin care</p>
                             <p className='line-three'>starts with Dr. Neha</p>
-                            <button className='shop-now-btn'>Shop Now <i class="fa-solid fa-basket-shopping"></i></button>
+                            <button className='shop-now-btn'>Shop Now <i className="fa-solid fa-basket-shopping"></i></button>
                         </div>
                         <div className='social-media-box'>
                             <button className='social-btn facebook-btn'>
-                                <i class="fa-brands fa-facebook-f"></i>
+                                <i className="fa-brands fa-facebook-f"></i>
                             </button>
                             <button className='social-btn linkedin-btn'>
-                                <i class="fa-brands fa-linkedin-in"></i>
+                                <i className="fa-brands fa-linkedin-in"></i>
                             </button>
                             <button className='social-btn instagram-btn'>
-                                <i class="fa-brands fa-instagram"></i>
+                                <i className="fa-brands fa-instagram"></i>
                             </button>
                             <button className='social-btn youtube-btn'>
-                                <i class="fa-brands fa-youtube"></i>
+                                <i className="fa-brands fa-youtube"></i>
                             </button>
 
 
@@ -51,7 +51,7 @@ const HeroSection = () => {
                         </div>
                         <button className='know-more-btn'>
                             Know more
-                            <i class="fa-solid fa-arrow-right"></i>
+                            <i className="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>

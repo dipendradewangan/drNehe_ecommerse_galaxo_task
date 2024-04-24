@@ -6,7 +6,7 @@ const LowerHeader = () => {
         <>
             <div className='lowerHeader'>
                 <div className='category-button-container'>
-                    <i class="fa-solid fa-bars"></i> CATEGORIES
+                    <i className="fa-solid fa-bars"></i> CATEGORIES
                     <div className='category-container'>
                         <Link className='link' to='/category/oil'>Oil</Link>
                         <Link className='link' to='/category/face-care'>Face Care</Link>
@@ -14,26 +14,26 @@ const LowerHeader = () => {
                     </div>
                 </div>
                 <div className='search-container'>
-                    <i class="fas fa-search search-icon"></i>
+                    <i className="fas fa-search search-icon"></i>
                     <input type='text' className='search-input' />
                     <button>Search</button>
                 </div>
                 <div className='auth-container'>
 
                     <Link to='/login' className='btn login-btn' >
-                        <i class="fa-solid fa-right-to-bracket"></i> Log In
+                        <i className="fa-solid fa-right-to-bracket"></i> Log In
                     </Link>
 
                     <Link to='/Register' className='btn login-btn'>
-                        <i class="fa-solid fa-user-plus"></i> Register as a new user
+                        <i className="fa-solid fa-user-plus"></i> Register as a new user
                     </Link>
 
                     <Link to='/my-wishlist' className='btn wishlist-btn'>
-                        <i class="fa-solid fa-heart"></i>
+                        <i className="fa-solid fa-heart"></i>
                     </Link>
 
                     <Link to='/cart' className='btn cart-btn'>
-                        <i class="fa-solid fa-cart-shopping"></i>
+                        <i className="fa-solid fa-cart-shopping"></i>
                     </Link>
                 </div>
             </div>
