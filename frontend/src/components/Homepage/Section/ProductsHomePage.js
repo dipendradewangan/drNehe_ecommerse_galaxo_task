@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './ProductHomePage.css'
 import bannerImage from '../../../images/bannerImage.jpeg'
 import catelogImg1 from '../../../images/catelog1.jpg'
@@ -6,9 +6,19 @@ import catelogImg2 from '../../../images/catelog2.jpg'
 import catelogImg3 from '../../../images/catelog3.jpg'
 import catelogImg4 from '../../../images/catelog4.jpg'
 import centerHairOil from '../../../images/center-hair-oil.png'
+import { useDispatch } from 'react-redux'
+import { getProduct } from '../../../redux/action/productAction'
 
 
 const ProductsHomePage = () => {
+
+    const dispatch = useDispatch()
+
+    
+
+    useEffect(()=>{
+        dispatch(getProduct())
+    },[dispatch])
     return (
         <>
             <div className='product-home-page'>
