@@ -1,4 +1,7 @@
 import React, { useEffect } from 'react'
+
+import image from "../../../images/oilImage.jpg"
+
 import './ProductHomePage.css'
 import bannerImage from '../../../images/bannerImage.jpeg'
 import catelogImg1 from '../../../images/catelog1.jpg'
@@ -6,19 +9,25 @@ import catelogImg2 from '../../../images/catelog2.jpg'
 import catelogImg3 from '../../../images/catelog3.jpg'
 import catelogImg4 from '../../../images/catelog4.jpg'
 import centerHairOil from '../../../images/center-hair-oil.png'
-import { useDispatch } from 'react-redux'
-import { getProduct } from '../../../redux/action/productAction'
+import { getProduct } from "../../../redux/action/productAction"
+
+import { useDispatch, useSelector } from 'react-redux'
 
 
 const ProductsHomePage = () => {
 
     const dispatch = useDispatch()
 
-    
-
-    useEffect(()=>{
+    const { loading, product, productCount } = useSelector((state) => state.product)
+    console.log(product)
+    useEffect(() => {
         dispatch(getProduct())
-    },[dispatch])
+    }, [dispatch])
+
+
+
+
+
     return (
         <>
             <div className='product-home-page'>
@@ -31,7 +40,7 @@ const ProductsHomePage = () => {
 
                             {/* all featured products list */}
                             {
-                                featuredCategories.map((prod,index) =>
+                                featuredCategories.map((prod, index) =>
                                     <div key={index} className='featured-category-product'>
                                         <div className='product-image-container'>
                                             <img className={prod.images} alt='product' />
@@ -131,29 +140,34 @@ const ProductsHomePage = () => {
                         <div className='container'>
 
                             {/* all product list */}
+
+
+                            {/* sample */}
                             {
-                                topSellingProducts.map((prod, index) => <div key={index} className='product-main-box'>
-                                    <div className='product-img-box'>
-                                        <div className='btns-cart-wishlist'>
-                                            <button>
-                                                <i className="fa-regular fa-heart"></i>
-                                            </button>
-                                            <button>
-                                                <i className="fas fa-shopping-cart"></i>
-                                            </button>
+                                topSellingProducts.map((prod, index) => (
+                                    <div key={index} className='product-main-box'>
+                                        <div className='product-img-box'>
+                                            <div className='btns-cart-wishlist'>
+                                                <button>
+                                                    <i className="fa-regular fa-heart"></i>
+                                                </button>
+                                                <button>
+                                                    <i className="fas fa-shopping-cart"></i>
+                                                </button>
+                                            </div>
+                                            <img className='product-img' src={prod.image} alt='product' />
                                         </div>
-                                        <img className='product-img' src={prod.image} alt='product' />
+                                        <p className='product-name'>Dr. Neha's Teeth Care</p>
+                                        <div className='product-price'>
+                                            <p className='actual-price'>
+                                                <i className="fa-solid fa-indian-rupee-sign"></i> {12345}
+                                            </p>
+                                            <p className='cancel-price'>
+                                                <i className="fa-solid fa-indian-rupee-sign"></i> {12345}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <p className='product-name'>Dr. Neha's Teeth Care</p>
-                                    <div className='product-price'>
-                                        <p className='actual-price'>
-                                            <i className="fa-solid fa-indian-rupee-sign"></i> {12345}
-                                        </p>
-                                        <p className='cancel-price'>
-                                            <i className="fa-solid fa-indian-rupee-sign"></i> {12345}
-                                        </p>
-                                    </div>
-                                </div>)
+                                ))
                             }
                             <div className='product-main-box'>
                                 <div className='product-img-box'>
@@ -190,32 +204,38 @@ const ProductsHomePage = () => {
 
                 {/* trending , recommend, featured products */}
                 <div className='manytype-products-container'>
+
+
+
                     {/* trending products */}
                     <div className='trandingProdBox'>
                         <h1 className='heading'>Trending Products</h1>
                         <div className='all-trending-product-box '>
+
                             {
-                                TrendingProducts.map((prod,index) => <div key={index} className='productBox'>
-                                    <div className='imageBox'>
-                                        <img src={prod.image} alt='product' />
-                                    </div>
-                                    <div className='productInfoBox'>
-                                        <p className='productName'>
-                                            {prod.name}
-                                        </p>
-                                        <div className='priceBox'>
-                                            <p className='actual-price f-5'>
-                                                <i className="fa-solid fa-indian-rupee-sign fs-5"></i> {prod.actualPrice}
+                                loading ? "this is loading" : product && product.map((prod, index) => (
+                                    <div key={index} className='productBox'>
+                                        <div className='imageBox'>
+                                            <img src={prod.images.url === "sample url" ? image : prod.images.url} alt={prod.images.url} />
+                                        </div>
+                                        <div className='productInfoBox'>
+                                            <p className='productName'>
+                                                {prod.name}
                                             </p>
-                                            <p className='cancel-price'>
-                                                <i className="fa-solid fa-indian-rupee-sign fs-7"></i> {prod.cancelPrice}
-                                            </p>
+                                            <div className='priceBox'>
+                                                <p className='actual-price f-5'>
+                                                    <i className="fa-solid fa-indian-rupee-sign fs-5"></i> {prod.price}
+                                                </p>
+                                                <p className='cancel-price'>
+                                                    <i className="fa-solid fa-indian-rupee-sign fs-7"></i> {300}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                )
+                                ))
                             }
+
                         </div>
 
 
@@ -224,27 +244,29 @@ const ProductsHomePage = () => {
                     <div>
                         <h1 className='heading'>Recommend Products</h1>
                         <div className='all-trending-product-box '>
+
                             {
-                                RecommendedProducts.map((prod, index) => <div key={index} className='productBox'>
-                                    <div className='imageBox'>
-                                        <img src={prod.image} alt='product' />
-                                    </div>
-                                    <div className='productInfoBox'>
-                                        <p className='productName'>
-                                            {prod.name}
-                                        </p>
-                                        <div className='priceBox'>
-                                            <p className='actual-price f-5'>
-                                                <i className="fa-solid fa-indian-rupee-sign fs-5"></i> {prod.actualPrice}
+                                loading ? "this is loading" : product && product.map((prod, index) => (
+                                    <div key={index} className='productBox'>
+                                        <div className='imageBox'>
+                                            <img src={prod.images.url === "sample url" ? image : prod.images.url} alt={prod.images.url} />
+                                        </div>
+                                        <div className='productInfoBox'>
+                                            <p className='productName'>
+                                                {prod.name}
                                             </p>
-                                            <p className='cancel-price'>
-                                                <i className="fa-solid fa-indian-rupee-sign fs-7"></i> {prod.cancelPrice}
-                                            </p>
+                                            <div className='priceBox'>
+                                                <p className='actual-price f-5'>
+                                                    <i className="fa-solid fa-indian-rupee-sign fs-5"></i> {prod.price}
+                                                </p>
+                                                <p className='cancel-price'>
+                                                    <i className="fa-solid fa-indian-rupee-sign fs-7"></i> {300}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                )
+                                ))
                             }
                         </div>
 
@@ -253,27 +275,29 @@ const ProductsHomePage = () => {
                     <div>
                         <h1 className='heading'>Featured Products</h1>
                         <div className='all-trending-product-box '>
+
                             {
-                                featuredProducts.map((prod,index) => <div key={index} className='productBox'>
-                                    <div className='imageBox'>
-                                        <img src={prod.image} alt='product' />
-                                    </div>
-                                    <div className='productInfoBox'>
-                                        <p className='productName'>
-                                            {prod.name}
-                                        </p>
-                                        <div className='priceBox'>
-                                            <p className='actual-price f-5'>
-                                                <i className="fa-solid fa-indian-rupee-sign fs-5"></i> {prod.actualPrice}
+                                loading ? "this is loading" : product && product.map((prod, index) => (
+                                    <div key={index} className='productBox'>
+                                        <div className='imageBox'>
+                                            <img src={prod.images.url === "sample url" ? image : prod.images.url} alt={prod.images.url} />
+                                        </div>
+                                        <div className='productInfoBox'>
+                                            <p className='productName'>
+                                                {prod.name}
                                             </p>
-                                            <p className='cancel-price'>
-                                                <i className="fa-solid fa-indian-rupee-sign fs-7"></i> {prod.cancelPrice}
-                                            </p>
+                                            <div className='priceBox'>
+                                                <p className='actual-price f-5'>
+                                                    <i className="fa-solid fa-indian-rupee-sign fs-5"></i> {prod.price}
+                                                </p>
+                                                <p className='cancel-price'>
+                                                    <i className="fa-solid fa-indian-rupee-sign fs-7"></i> {300}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                )
+                                ))
                             }
                         </div>
                     </div>
