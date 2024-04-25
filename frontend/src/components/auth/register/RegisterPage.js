@@ -4,21 +4,32 @@ import Header from '../../Homepage/Header/Header'
 
 import Footer from '../../Homepage/Footer/Footer'
 import { Link } from 'react-router-dom'
+import { useDispatch } from "react-redux"
+import { registerUser } from '../../../redux/action/userAction'
+
 const RegisterPage = () => {
+    const dispatch = useDispatch()
+    const [bothpasswordMatch, setBothpasswordMatch] = useState(false)
 
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors }, watch } = useForm()
 
-    const [registerData, setRegisteData] = useState({})
+
     const resiterSubmit = (data) => {
-        console.log(data)
-        if(data.password === data.confirmPassword){
-            setRegisteData(data)
+        console.log(data.name)
+        console.log(data.email)
+        console.log(data.password)
+        if (data.password === data.confirmPassword) {
+            setBothpasswordMatch(false)
+            dispatch(registerUser(data.name, data.email, data.password))
             
         }
+        else {
+            setBothpasswordMatch(true)
+        }
     }
-    console.log(registerData)
 
-    
+
+
     return (
         <div>
             <Header />
@@ -28,7 +39,7 @@ const RegisterPage = () => {
 
                 <div className='border-gray-200 border-1 flex flex-col justify-center items-center p-4 login-form'>
                     <h1 className='font-bold text-2xl mb-3 text-gray-800'>Register </h1>
-                    <form className='registerForm flex flex-col' onSubmit={handleSubmit((data)=>resiterSubmit(data))} >
+                    <form className='registerForm flex flex-col' onSubmit={handleSubmit((data) => resiterSubmit(data))} >
 
                         {errors.name && `${errors.name.message}`}
                         <input
@@ -46,18 +57,11 @@ const RegisterPage = () => {
                             className='login-input outline-none'
                         />
 
-                        {errors.phone && `${errors.phone.message}`}
-                        <input
-                            {...register("phone", { required: "Enter your Mobile Number" })}
-                            placeholder='Enter Your Mobile'
-                            type='text'
-                            className='login-input outline-none'
-                        />
-
+                        
 
                         {errors.password && `${errors.password.message}`}
                         <input
-                            {...register("password", { required: "Enter your password" })}
+                            {...register("password", { required: "Enter your password" }, watch)}
                             placeholder='password'
                             type='password'
                             className='login-input outline-none'
@@ -65,12 +69,16 @@ const RegisterPage = () => {
 
 
                         {errors.confirmPassword && `${errors.confirmPassword.message}`}
+                        {
+                            bothpasswordMatch ? <p className='text-black-500'>Confirm Password not matched</p> : ""
+                        }
                         <input
                             {...register("confirmPassword", { required: "Enter your cofirm password" })}
                             placeholder='Confim Password'
                             type='password'
                             className='login-input outline-none'
                         />
+
 
 
                         <button className='login-now-btn text-white px-3 py-2 rounded-3xl mb-3' type='submit'>Register Now !</button>

@@ -7,7 +7,7 @@ import { userReducer } from "./reducer/userReducer";
 
 let initialState = {}
 
-const reducer = combineReducers({
+const reducer = combineReducers({ 
     product : productReducer,
     productDetails : productDetailsReducer,
     user : userReducer
