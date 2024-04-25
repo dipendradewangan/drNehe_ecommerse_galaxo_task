@@ -1,5 +1,6 @@
 const express = require('express');
 const cookieParser = require("cookie-parser")
+const bodyParser = require("body-parser")
 
 // imports all internal modules
 const errorMiddleWare = require('./middleware/error')

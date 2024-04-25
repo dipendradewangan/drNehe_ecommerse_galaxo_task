@@ -1,7 +1,12 @@
 import React from 'react'
 import './LowerHeader.css'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 const LowerHeader = () => {
+
+
+    const isAuthenticated = useSelector((state) => state.user.isAuthenticated)
+    console.log(isAuthenticated)
     return (
         <>
             <div className='lowerHeader'>
@@ -18,25 +23,37 @@ const LowerHeader = () => {
                     <input type='text' className='search-input' />
                     <button>Search</button>
                 </div>
-                <div className='auth-container'>
 
-                    <Link to='/login' className='btn login-btn' >
-                        <i className="fa-solid fa-right-to-bracket"></i> Log In
-                    </Link>
+                {
+                    isAuthenticated ? (
+                        <div className='auth-container'>
 
-                    <Link to='/Register' className='btn login-btn'>
-                        <i className="fa-solid fa-user-plus"></i> Register as a new user
-                    </Link>
+                            <Link to='/logout' className='btn login-btn' >
+                                <i className="fa-solid fa-right-to-bracket"></i> Logout
+                            </Link >
 
-                    <Link to='/my-wishlist' className='btn wishlist-btn'>
-                        <i className="fa-solid fa-heart"></i>
-                    </Link>
 
-                    <Link to='/cart' className='btn cart-btn'>
-                        <i className="fa-solid fa-cart-shopping"></i>
-                    </Link>
-                </div>
-            </div>
+                            <Link to='/my-wishlist' className='btn wishlist-btn'>
+                                <i className="fa-solid fa-heart"></i>
+                            </Link>
+
+                            <Link to='/cart' className='btn cart-btn'>
+                                <i className="fa-solid fa-cart-shopping"></i>
+                            </Link>
+                        </div >
+                    ) : (<div className='auth-container'>
+
+                        <Link to='/login' className='btn login-btn' >
+                            <i className="fa-solid fa-right-to-bracket"></i> Log In
+                        </Link >
+
+                        <Link to='/Register' className='btn login-btn'>
+                            <i className="fa-solid fa-user-plus"></i> Register as a new user
+                        </Link>
+                    </div >)
+                }
+
+            </div >
         </>
     )
 }

@@ -11,7 +11,6 @@ const Products = () => {
 
     const data = useSelector((state) => state)
     const { loading, product } = useSelector((state) => state.product)
-    console.log(data)
 
     useEffect(() => {
         dispatch(getProduct())

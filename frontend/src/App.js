@@ -3,6 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PageNotFound from "./components/PageNotFound";
 import Home from './components/Homepage/Home'
 import LoginPage from "./components/auth/login/LoginPage";
+import LogoutPage from "./components/auth/login/LogOutPage.js";
+
 import RegisterPage from "./components/auth/register/RegisterPage";
 import MyWishlistPage from "./components/auth/wishlist/MyWishlistPage";
 import CartPage from "./components/auth/cart/CartPage";
@@ -16,6 +18,10 @@ import ShippingPolicyPage from "./components/Homepage/Footer/shippingPolicy/Ship
 import ReturnPolicyPage from "./components/Homepage/Footer/returnPolicy/ReturnPolicyPage";
 import ProductPage from "./components/products/ProductPage";
 import ProductDetail from "./components/products/ProductDetail";
+import { useEffect } from "react";
+import { loadUser } from "./redux/action/userAction";
+import store from "./redux/store"
+import { useSelector } from "react-redux";
 
 const router = createBrowserRouter([
 
@@ -74,6 +80,12 @@ const router = createBrowserRouter([
     )
   },
   {
+    path : "/logout",
+    element : (
+      <LogoutPage/>
+    )
+  },
+  {
     path : "/register",
     element : (
       <RegisterPage/>
@@ -126,6 +138,11 @@ const router = createBrowserRouter([
 ])
 
 function App() {
+
+  useEffect(()=>{
+    store.dispatch(loadUser())
+  },[store])
+
   return (
     <div className="App">
       <RouterProvider router={router}></RouterProvider>
