@@ -69,6 +69,16 @@
 }
 
 
+.facecare-menu:hover .facecare-submenu{
+    display: flex;
+}
+
+
+.oils-menu:hover .oils-submenu{
+    display: flex;
+}
+
+
 
 .menu-list .menu-link .icon-menu{
     font-size: 10px;

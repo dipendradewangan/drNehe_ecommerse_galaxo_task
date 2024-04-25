@@ -25,7 +25,7 @@ const Products = () => {
 
                 <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                     {loading ? "this is loading " : product && product.map((prod, index) => (
-                        <Link to="/products/product-details" key={index}>
+                        <Link to={`/product/${prod._id}`} key={index}>
 
                             <div className="group relative cursor-pointer">
                                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden  bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">

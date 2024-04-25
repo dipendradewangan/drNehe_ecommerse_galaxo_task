@@ -1,0 +1,21 @@
+.login-form{
+    background-color: #ECD39D;
+    border-radius: 10px;
+
+}
+
+.login-input{
+    border : 1px solid #ECD39D;
+    width: 300px;
+    margin-bottom: 20px;
+    padding: 5px 10px;
+}
+
+
+.login-now-btn{
+    background-color: rgb(65, 63, 63);
+}
+
+.login-now-btn:hover{
+    background-color: gray;
+}

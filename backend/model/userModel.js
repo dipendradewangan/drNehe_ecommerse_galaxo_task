@@ -21,6 +21,10 @@ const userModal = new mongoose.Schema({
         unique: true,
         validate : [validator.isEmail, "Please Enter a valid email"]
     },
+    mobile: {
+        type: Number,
+        required: [true, "Please Enter your Mobile No"]
+    },
     password: {
         type: String,
         required: [true, "Please Enter your password"],

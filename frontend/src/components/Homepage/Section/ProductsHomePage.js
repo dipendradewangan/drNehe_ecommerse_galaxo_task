@@ -18,7 +18,7 @@ const ProductsHomePage = () => {
 
     const dispatch = useDispatch()
 
-    const { loading, product, productCount } = useSelector((state) => state.product)
+    const { loading, product } = useSelector((state) => state.product)
     console.log(product)
     useEffect(() => {
         dispatch(getProduct())
@@ -384,83 +384,83 @@ const topSellingProducts = [
     },
 ]
 
-const TrendingProducts = [
-    {
-        name: "Dr. Neha's Teeth Care",
-        image: "https://cdn.britannica.com/55/157155-050-D07F5610/Containers-olive-oil.jpg",
-        actualPrice: "200",
-        cancelPrice: "150"
-    },
-    {
-        name: "Dr. Neha's Teeth Care",
-        image: "https://media.istockphoto.com/id/1490062930/photo/soy-oil-bottle-and-dried-soybeans.webp?b=1&s=170667a&w=0&k=20&c=_FIGeSXowj8RzmTmn3t1wY8FbOy0NhPVGNIQcnBZ_kw=",
-        actualPrice: "200",
-        cancelPrice: "150"
-    },
-    {
-        name: "Dr. Neha's Teeth Care",
-        image: "https://media.gettyimages.com/id/1301011483/photo/mustard-seed-oil.jpg?s=612x612&w=0&k=20&c=iEgjwAVEQRdSMHMuLJ5XhydFa09UCm_odS2G84QTVck=",
-        actualPrice: "200",
-        cancelPrice: "150"
-    },
-    {
-        name: "Dr. Neha's Teeth Care",
-        image: "https://media.gettyimages.com/id/155148827/photo/massage-oil-bottles-with-lemons-and-olive-branch.jpg?s=612x612&w=0&k=20&c=ZVKAFqRDpBI-l1QvGQsfS-norS-xtCP0ezsq9iEGeGw=",
-        actualPrice: "200",
-        cancelPrice: "150"
-    },
-]
+// const TrendingProducts = [
+//     {
+//         name: "Dr. Neha's Teeth Care",
+//         image: "https://cdn.britannica.com/55/157155-050-D07F5610/Containers-olive-oil.jpg",
+//         actualPrice: "200",
+//         cancelPrice: "150"
+//     },
+//     {
+//         name: "Dr. Neha's Teeth Care",
+//         image: "https://media.istockphoto.com/id/1490062930/photo/soy-oil-bottle-and-dried-soybeans.webp?b=1&s=170667a&w=0&k=20&c=_FIGeSXowj8RzmTmn3t1wY8FbOy0NhPVGNIQcnBZ_kw=",
+//         actualPrice: "200",
+//         cancelPrice: "150"
+//     },
+//     {
+//         name: "Dr. Neha's Teeth Care",
+//         image: "https://media.gettyimages.com/id/1301011483/photo/mustard-seed-oil.jpg?s=612x612&w=0&k=20&c=iEgjwAVEQRdSMHMuLJ5XhydFa09UCm_odS2G84QTVck=",
+//         actualPrice: "200",
+//         cancelPrice: "150"
+//     },
+//     {
+//         name: "Dr. Neha's Teeth Care",
+//         image: "https://media.gettyimages.com/id/155148827/photo/massage-oil-bottles-with-lemons-and-olive-branch.jpg?s=612x612&w=0&k=20&c=ZVKAFqRDpBI-l1QvGQsfS-norS-xtCP0ezsq9iEGeGw=",
+//         actualPrice: "200",
+//         cancelPrice: "150"
+//     },
+// ]
 
-const RecommendedProducts = [
-    {
-        name: "Dr. Neha's Teeth Care",
-        image: "https://cdn.britannica.com/55/157155-050-D07F5610/Containers-olive-oil.jpg",
-        actualPrice: "200",
-        cancelPrice: "150"
-    },
-    {
-        name: "Dr. Neha's Teeth Care",
-        image: "https://media.gettyimages.com/id/155148827/photo/massage-oil-bottles-with-lemons-and-olive-branch.jpg?s=612x612&w=0&k=20&c=ZVKAFqRDpBI-l1QvGQsfS-norS-xtCP0ezsq9iEGeGw=",
-        actualPrice: "200",
-        cancelPrice: "150"
-    },
-    {
-        name: "Dr. Neha's Teeth Care",
-        image: "https://www.zeldadungeon.net/wiki/images/thumb/f/f5/Link_-_TotK_key_art.png/400px-Link_-_TotK_key_art.png",
-        actualPrice: "200",
-        cancelPrice: "150"
-    },
-    {
-        name: "Dr. Neha's Teeth Care",
-        image: "https://www.zeldadungeon.net/wiki/images/thumb/f/f5/Link_-_TotK_key_art.png/400px-Link_-_TotK_key_art.png",
-        actualPrice: "200",
-        cancelPrice: "150"
-    },
-]
+// const RecommendedProducts = [
+//     {
+//         name: "Dr. Neha's Teeth Care",
+//         image: "https://cdn.britannica.com/55/157155-050-D07F5610/Containers-olive-oil.jpg",
+//         actualPrice: "200",
+//         cancelPrice: "150"
+//     },
+//     {
+//         name: "Dr. Neha's Teeth Care",
+//         image: "https://media.gettyimages.com/id/155148827/photo/massage-oil-bottles-with-lemons-and-olive-branch.jpg?s=612x612&w=0&k=20&c=ZVKAFqRDpBI-l1QvGQsfS-norS-xtCP0ezsq9iEGeGw=",
+//         actualPrice: "200",
+//         cancelPrice: "150"
+//     },
+//     {
+//         name: "Dr. Neha's Teeth Care",
+//         image: "https://www.zeldadungeon.net/wiki/images/thumb/f/f5/Link_-_TotK_key_art.png/400px-Link_-_TotK_key_art.png",
+//         actualPrice: "200",
+//         cancelPrice: "150"
+//     },
+//     {
+//         name: "Dr. Neha's Teeth Care",
+//         image: "https://www.zeldadungeon.net/wiki/images/thumb/f/f5/Link_-_TotK_key_art.png/400px-Link_-_TotK_key_art.png",
+//         actualPrice: "200",
+//         cancelPrice: "150"
+//     },
+// ]
 
-const featuredProducts = [
-    {
-        name: "Dr. Neha's Teeth Care",
-        image: "https://www.zeldadungeon.net/wiki/images/thumb/f/f5/Link_-_TotK_key_art.png/400px-Link_-_TotK_key_art.png",
-        actualPrice: "200",
-        cancelPrice: "150"
-    },
-    {
-        name: "Dr. Neha's Teeth Care",
-        image: "https://www.zeldadungeon.net/wiki/images/thumb/f/f5/Link_-_TotK_key_art.png/400px-Link_-_TotK_key_art.png",
-        actualPrice: "200",
-        cancelPrice: "150"
-    },
-    {
-        name: "Dr. Neha's Teeth Care",
-        image: "https://www.zeldadungeon.net/wiki/images/thumb/f/f5/Link_-_TotK_key_art.png/400px-Link_-_TotK_key_art.png",
-        actualPrice: "200",
-        cancelPrice: "150"
-    },
-    {
-        name: "Dr. Neha's Teeth Care",
-        image: "https://www.zeldadungeon.net/wiki/images/thumb/f/f5/Link_-_TotK_key_art.png/400px-Link_-_TotK_key_art.png",
-        actualPrice: "200",
-        cancelPrice: "150"
-    },
-]
+// const featuredProducts = [
+//     {
+//         name: "Dr. Neha's Teeth Care",
+//         image: "https://www.zeldadungeon.net/wiki/images/thumb/f/f5/Link_-_TotK_key_art.png/400px-Link_-_TotK_key_art.png",
+//         actualPrice: "200",
+//         cancelPrice: "150"
+//     },
+//     {
+//         name: "Dr. Neha's Teeth Care",
+//         image: "https://www.zeldadungeon.net/wiki/images/thumb/f/f5/Link_-_TotK_key_art.png/400px-Link_-_TotK_key_art.png",
+//         actualPrice: "200",
+//         cancelPrice: "150"
+//     },
+//     {
+//         name: "Dr. Neha's Teeth Care",
+//         image: "https://www.zeldadungeon.net/wiki/images/thumb/f/f5/Link_-_TotK_key_art.png/400px-Link_-_TotK_key_art.png",
+//         actualPrice: "200",
+//         cancelPrice: "150"
+//     },
+//     {
+//         name: "Dr. Neha's Teeth Care",
+//         image: "https://www.zeldadungeon.net/wiki/images/thumb/f/f5/Link_-_TotK_key_art.png/400px-Link_-_TotK_key_art.png",
+//         actualPrice: "200",
+//         cancelPrice: "150"
+//     },
+// ]
