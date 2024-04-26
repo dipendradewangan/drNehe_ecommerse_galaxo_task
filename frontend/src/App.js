@@ -21,7 +21,6 @@ import ProductDetail from "./components/products/ProductDetail";
 import { useEffect } from "react";
 import { loadUser } from "./redux/action/userAction";
 import store from "./redux/store"
-import { useSelector } from "react-redux";
 
 const router = createBrowserRouter([
 

@@ -19,7 +19,8 @@ const ProductsHomePage = () => {
     const dispatch = useDispatch()
 
     const { loading, product } = useSelector((state) => state.product)
-    console.log(product)
+
+    
     useEffect(() => {
         dispatch(getProduct())
     }, [dispatch])

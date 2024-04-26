@@ -18,16 +18,18 @@ const productSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    images: {
-        public_id: {
-            type: String,
-            required: true
+    images: [
+        {
+            public_id: {
+                type: String,
+                required: true
+            },
+            url: {
+                type: String,
+                required: true
+            }
         },
-        url: {
-            type: String,
-            required: true
-        }
-    },
+    ],
     category: {
         type: String,
         required: true
@@ -43,10 +45,10 @@ const productSchema = new mongoose.Schema({
         default: 0
     },
     reviews: [{
-        user :{
-            type : mongoose.Schema.ObjectId,
+        user: {
+            type: mongoose.Schema.ObjectId,
             ref: "User",
-            required : true
+            required: true
         },
         name: {
             type: String,
