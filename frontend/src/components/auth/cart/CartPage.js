@@ -1,25 +1,26 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../../Homepage/Header/Header'
 import Footer from '../../Homepage/Footer/Footer'
 import Cart from './Cart'
 import { useDispatch, useSelector } from 'react-redux'
 
+
 const CartPage = () => {
-  
+
+    const cartItems = useSelector(state=>state.cart.cartItems)
+    
     return (
         <div>
             <Header />
 
 
             <div className="bg-white mt-12 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-between">
-               
                 <Cart/>
-
                 <div className='w-72 px-4'>
                     <h1 className="text-2xl font-bold">Order Summary</h1>
                     <div className="flex justify-between mt-4 flex-col mb-3">
                         <h5>
-                            Total Price : 1000
+                            {`Total Price : ${cartItems.reduce((acc, item)=> acc + item.price * item.quantity,0)}`}
                         </h5>
                         <h5>
                             Discount : 100
