@@ -16,7 +16,7 @@ const ProductDetail = () => {
     }
 
     const increseQuantity = () => {
-        if(product.stock <= quantity){
+        if (product.stock <= quantity) {
             alert(`Only ${product.stock} Quantity left in the stock`)
             return;
 
@@ -42,7 +42,7 @@ const ProductDetail = () => {
     }, [dispatch])
 
 
-    const addToCartHandler = ()=>{
+    const addToCartHandler = () => {
         dispatch(addItemsToCart(params.id, quantity))
         alert("item added to cart")
     }
@@ -106,41 +106,6 @@ const ProductDetail = () => {
                         </div>
                     )
                 }
-                {/* <div>
-                    <div className='flex justify-center items-center gap-6 border-3 p-5'>
-                        <div className='w-6/12 flex justify-center items-center '>
-                            <img src={image} alt='image' className='w-full' />
-                        </div>
-                        <div>
-                            <div className='mb-2'>
-                                <h1 className='font-bold text-3xl'>Name</h1>
-                                <h1 className='font-normal text-lg'>Product : #{params.id}</h1>
-                            </div>
-
-                            <div className='flex gap-1 items-center mb-2'>
-                                <h1 className='font-normal text-lg'>Ratings</h1>
-                                <h1 className='font-normal text-sm'>(4 review)</h1>
-                            </div>
-                            <div>
-                                <div className='flex gap-2 items-center mb-3'>
-                                    <h1 className='font-bold text-xl'>₹10000</h1>
-                                    <h1 className='font-bold text-sm text-gray-400 line-through'>₹10000</h1>
-                                </div>
-                                <div className='gap-2 flex mb-3'>
-                                    <button className='bg-blue-700 p-1 px-3 text-white rounded-2xl hover:bg-blue-400'>Add to Cart</button>
-                                    <button className='bg-green-700 p-1 px-3 text-white rounded-2xl hover:bg-green-400'>Add to Wishlist</button>
-                                </div>
-                            </div>
-                            <h1 className='font-bold text-2xl'>Description</h1>
-                            <h1 className='font-normal text-sm'>Description</h1>
-                        </div>
-                    </div>
-
-
-                    <div className='flex justify-center items-center gap-6 border-3 p-5'>
-                        <h1 className='font-bold text-4xl'>Product Reviews</h1>
-                    </div>
-                </div> */}
 
 
             </div>
