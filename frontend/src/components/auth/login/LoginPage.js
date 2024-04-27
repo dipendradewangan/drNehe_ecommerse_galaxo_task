@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react'
-import Header from '../../Homepage/Header/Header'
-import Footer from '../../Homepage/Footer/Footer'
 import "./LoginPage.css"
 import { Link, } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
@@ -36,12 +34,9 @@ const LoginPage = () => {
 
     return (
         <div>
-            <Header />
             {
                 isAuthenticated && <Navigate to="/"></Navigate>
             }
-
-
             {/* login box */}
             <div className="bg-white mt-12 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-center">
 
@@ -73,7 +68,7 @@ const LoginPage = () => {
                 </div>
 
             </div>
-            <Footer />
+
         </div>
     )
 }

@@ -10,8 +10,10 @@ import {
     LOAD_USER_SUCCESS,
     LOAD_USER_FAIL,
     LOGOUT_SUCEESS,
-    LOGOUT_FAIL
+    LOGOUT_FAIL,
+    ADD_SHIPPING_DETAILS
 } from "../constant/userContants";
+
 
 export const userReducer = (state = { user: {} }, action) => {
     switch (action.type) {
@@ -60,11 +62,25 @@ export const userReducer = (state = { user: {} }, action) => {
                 loading : false,
                 error : action.payload
             };
+
+
         case CLEAR_ERRORS:
             return {
                 ...state,
                 error: null
             };
+        default:
+            return state;
+    }
+}
+
+const shippingDetails = (state={shippingDetails : []}, action)=>{
+    switch(action.type){
+        case ADD_SHIPPING_DETAILS:
+            return {
+                ...state,
+                shippingDetails : action.payload
+            }
         default:
             return state;
     }

@@ -44,6 +44,18 @@ const userModal = new mongoose.Schema({
         }
     },
 
+    shippingDetails : [
+        {
+            name: String,
+            address : String,
+            city : String,
+            phone : String,
+            pincode : String,
+            district : String,
+            state : String,
+            country :String,
+        }
+    ],
     role: {
         type: String,
         default: "user"

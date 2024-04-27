@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import Header from '../../Homepage/Header/Header'
-import Footer from '../../Homepage/Footer/Footer'
+import React, { Fragment, useEffect, useState } from 'react'
 import Cart from './Cart'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 
 const CartPage = () => {
@@ -10,10 +9,8 @@ const CartPage = () => {
     const cartItems = useSelector(state=>state.cart.cartItems)
     
     return (
-        <div>
-            <Header />
-
-
+        <Fragment>
+            
             <div className="bg-white mt-12 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-between">
                 <Cart/>
                 <div className='w-72 px-4'>
@@ -34,16 +31,12 @@ const CartPage = () => {
                         <h1>
                             Gross Total : 1000
                         </h1>
-
                     </div>
-                    <button className="text-sm py-2 px-4 bg-green-700 text-white  rounded-xl hover:bg-green-500">Checkout</button>
+                    <Link to="/checkout" className="text-sm py-2 px-4 bg-green-700 text-white  rounded-xl hover:bg-green-500">Checkout</Link>
                 </div>
 
-            </div>
-
-
-            <Footer />
-        </div>
+            </div>            
+        </Fragment>
     )
 }
 

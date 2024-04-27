@@ -185,7 +185,9 @@ exports.updatePassword = catchAsyncError(async (req, res, next) => {
 exports.updateProfile = catchAsyncError(async (req, res, next) => {
     const newUserData = {
         email: req.body.email,
-        name: req.body.name
+        name: req.body.name,
+        phone : req.body.phone,
+        shippingDetails : req.body.shippingDetails,
     }
 
     // we will use coudinary later

@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import Header from '../../Homepage/Header/Header'
-
-import Footer from '../../Homepage/Footer/Footer'
 import { Link } from 'react-router-dom'
 import { useDispatch } from "react-redux"
+
+
 import { registerUser } from '../../../redux/action/userAction'
 
 const RegisterPage = () => {
@@ -15,13 +14,11 @@ const RegisterPage = () => {
 
 
     const resiterSubmit = (data) => {
-        console.log(data.name)
-        console.log(data.email)
-        console.log(data.password)
+        console.log(errors)
         if (data.password === data.confirmPassword) {
             setBothpasswordMatch(false)
             dispatch(registerUser(data.name, data.email, data.password))
-            
+
         }
         else {
             setBothpasswordMatch(true)
@@ -32,7 +29,7 @@ const RegisterPage = () => {
 
     return (
         <div>
-            <Header />
+
 
             {/* register box */}
             <div className="bg-white mt-12 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-center">
@@ -57,7 +54,7 @@ const RegisterPage = () => {
                             className='login-input outline-none'
                         />
 
-                        
+
 
                         {errors.password && `${errors.password.message}`}
                         <input
@@ -78,9 +75,6 @@ const RegisterPage = () => {
                             type='password'
                             className='login-input outline-none'
                         />
-
-
-
                         <button className='login-now-btn text-white px-3 py-2 rounded-3xl mb-3' type='submit'>Register Now !</button>
                         <div className='flex justify-center w-full'>
                             <h1 className='cursor-pointer text-sm'>Allready Registered? <Link className='text-blue-500' to="/Login">Login Now!</Link></h1>
@@ -90,7 +84,7 @@ const RegisterPage = () => {
                 </div>
 
             </div>
-            <Footer />
+
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import { CLEAR_ERRORS, LOAD_USER_FAIL, LOAD_USER_REQUEST, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_FAIL, LOGOUT_SUCEESS, REGISTER_USER_FAIL, REGISTER_USER_REQUEST, REGISTER_USER_SUCCESS } from "../constant/userContants"
+import { ADD_SHIPPING_DETAILS, ADD_SHIPPING_DETAILS_REQUEST, CLEAR_ERRORS, LOAD_USER_FAIL, LOAD_USER_REQUEST, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_FAIL, LOGOUT_SUCEESS, REGISTER_USER_FAIL, REGISTER_USER_REQUEST, REGISTER_USER_SUCCESS } from "../constant/userContants"
 
 import axios from "axios"
 
@@ -21,7 +21,7 @@ export const userLogin = (email, password) => {
 }
 
 // regiser user
-export const registerUser = (name, email, password) => async (dispatch) => {
+export const registerUser = (name, email, password, phone) => async (dispatch) => {
     console.log(name, email, password)
     try {
         dispatch({ type: REGISTER_USER_REQUEST })
@@ -60,6 +60,17 @@ export const logout = () => async (dispatch) => {
         dispatch({ type: LOGOUT_FAIL, payload: error.response.data.message })
     }
 }
+
+
+// add shipping details
+export const addShippingDetails = (shippingData, userData) => async (dispatch) => {
+    console.log(shippingData)
+    console.log(userData)
+    const config = { headers: { "Content-Type": "application/json" } }
+    const {data} = await axios.put('/api/v1/me/update', config, shippingData)
+    dispatch({ type: ADD_SHIPPING_DETAILS, payload: data })
+}
+
 
 export const clearErrors = () => async (dispatch) => {
     dispatch({ type: CLEAR_ERRORS })

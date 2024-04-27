@@ -1,7 +1,8 @@
 import React from 'react'
 import UpperHeader from './UpperHeader'
 import LowerHeader from './LowerHeader'
-const header = () => {
+
+const Header = () => {
     return (
         <div>
             <UpperHeader/>
@@ -10,4 +11,4 @@ const header = () => {
     )
 }
 
-export default header
+export default Header
