@@ -6,19 +6,19 @@ import { logout } from '../../../redux/action/userAction'
 const LogOutPage = () => {
     const dispatch = useDispatch()
 
-    const isAuthenticated = useSelector((state)=>state.user.isAuthenticated)
+    const isAuthenticated = useSelector((state) => state.user.isAuthenticated)
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(logout())
-    },[dispatch])
+    }, [dispatch])
 
-   
+
     return (
         <div>
             {
-                isAuthenticated ? "" : <Navigate to="/" /> 
+                isAuthenticated ? "" : <Navigate to="/" />
             }
-           
+
         </div>
     )
 }

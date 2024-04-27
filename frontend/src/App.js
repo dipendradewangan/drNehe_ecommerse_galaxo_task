@@ -5,7 +5,6 @@ import Section from './components/Section/Section'
 import { useEffect } from "react";
 import { loadUser } from "./redux/action/userAction";
 import store from "./redux/store"
-
 // import PageNotFound from "./components/PageNotFound";
 // import Home from './components/Homepage/Home'
 // import LoginPage from "./components/auth/login/LoginPage";

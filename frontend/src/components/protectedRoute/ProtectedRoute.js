@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { useSelector } from 'react-redux'
-import { Navigate, Route} from 'react-router-dom'
+import { Navigate, Route, redirect} from 'react-router-dom'
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
 
@@ -13,7 +13,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
                     {...rest}
                     render={(props) => {
                         if(isAuntenticated){
-                            return <Navigate to='/login'></Navigate>
+                            return <redirect to='/login'></redirect>
                         }
                         return <Component {...props} />; 
                     }}

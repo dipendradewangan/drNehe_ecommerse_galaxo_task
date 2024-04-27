@@ -14,29 +14,35 @@ import CheckoutPage from '../auth/checkout/CheckoutPage'
 import AboutPage from './about/AboutPage'
 import ContactUsPage from './contact/ContectUsPage'
 import BlogsPage from './blogs/BlogsPage'
+import ProtectedRoute from '../protectedRoute/ProtectedRoute'
+import ConfirmOrderPage from '../auth/confirmOrder/ConfirmOrderPage'
 
 
 const Section = () => {
     return (
         <Fragment>
-            
-                <Routes>
-                    <Route exact path='/' element={<HomePage />} />
-                    <Route exact path='/products' element={<ProductPage />} />
-                    <Route exact path='/product/:id' element={<ProductDetail/>} />
 
-                    <Route exact path='/about-us' element={<AboutPage />} />
-                    <Route exact path='/contact-us' element={<ContactUsPage />} />
-                    <Route exact path='/blogs' element={<BlogsPage />} />
+            <Routes>
+                <Route exact path='/' element={<HomePage />} />
+                <Route exact path='/products' element={<ProductPage />} />
+                <Route exact path='/product/:id' element={<ProductDetail />} />
 
-                    <Route exact path='/login' element={<LoginPage />} />
-                    <Route exact path='/Register' element={<RegisterPage />} />
+                <Route exact path='/about-us' element={<AboutPage />} />
+                <Route exact path='/contact-us' element={<ContactUsPage />} />
+                <Route exact path='/blogs' element={<BlogsPage />} />
 
-                    {/* protected route */}
-                    <Route exact path='/logout' element={<LogOutPage />} />
-                    <Route exact path='/cart' element={<CartPage />} />
-                    <Route exact path='/checkout' element={<CheckoutPage />} />
-                </Routes>
+                <Route exact path='/login' element={<LoginPage />} />
+                <Route exact path='/Register' element={<RegisterPage />} />
+
+                {/* protected route */}
+                <Route exact path='/logout' element={<LogOutPage />} />
+
+                <Route exact path='/cart' element={<CartPage />} />
+
+                <Route exact path='/checkout' element={<CheckoutPage />} />
+                
+                <Route exact path='/order/confirm' element={<ConfirmOrderPage />} />
+            </Routes>
 
 
         </Fragment>

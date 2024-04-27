@@ -11,7 +11,6 @@ import {
     LOAD_USER_FAIL,
     LOGOUT_SUCEESS,
     LOGOUT_FAIL,
-    ADD_SHIPPING_DETAILS
 } from "../constant/userContants";
 
 
@@ -69,18 +68,6 @@ export const userReducer = (state = { user: {} }, action) => {
                 ...state,
                 error: null
             };
-        default:
-            return state;
-    }
-}
-
-const shippingDetails = (state={shippingDetails : []}, action)=>{
-    switch(action.type){
-        case ADD_SHIPPING_DETAILS:
-            return {
-                ...state,
-                shippingDetails : action.payload
-            }
         default:
             return state;
     }

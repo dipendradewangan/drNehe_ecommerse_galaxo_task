@@ -1,15 +1,20 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import Cart from './Cart'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 
 
 const CartPage = () => {
 
     const cartItems = useSelector(state=>state.cart.cartItems)
+    const userData = useSelector(state=>state.user)
+
     
     return (
         <Fragment>
+            {
+                userData && !userData.isAuthenticated && (<Navigate to="/"></Navigate>)
+            }
             
             <div className="bg-white mt-12 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-between">
                 <Cart/>

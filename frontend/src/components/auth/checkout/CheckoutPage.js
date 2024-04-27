@@ -1,20 +1,26 @@
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
-import { addShippingDetails } from '../../../redux/action/userAction'
+import { Navigate, useNavigate } from 'react-router-dom'
+import { saveShippingInfo } from '../../../redux/action/cartActions'
 
 const CheckoutPage = () => {
+    const history = useNavigate()
     const { register, handleSubmit, formState: { errors }, watch } = useForm()
     const dispatch = useDispatch()
-    const userData = useSelector(state => state.user.user.user)
-    console.log(userData)
+    const userData = useSelector(state => state.user)
 
     const shippingDetailSubmit = (data) => {
+        console.log(data)
+        dispatch(saveShippingInfo(data))
 
-        dispatch(addShippingDetails(data, userData))
+        history("/order/confirm")
     }
     return (
         <div>
+            {
+                userData && !userData.isAuthenticated && (<Navigate to="/"></Navigate>)
+            }
 
             <div className="bg-white mt-12 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-between">
 
