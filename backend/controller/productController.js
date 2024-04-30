@@ -2,19 +2,65 @@ const Product = require("../model/productModel")
 const ErrorHandler = require("../utils/ErrorHandler")
 const catchAsyncError = require('../middleware/catchAsyncError')
 const ApiFeatures = require("../utils/apiFeatures")
+const cloudinary = require("cloudinary").v2
+
+
+cloudinary.config({
+    cloud_name: 'djwgbvtbw',
+    api_key: '947777155231712',
+    api_secret: '8oww2LYjDaPAO8VU3SdHw96VL_M'
+});
 
 // create product
 exports.createProduct = catchAsyncError(async (req, res, next) => {
+    const file = req.files.image;
+    const createdUser = req.user.id
 
-    req.body.createdUser = req.user.id
-    console.log(req.body)
-    const product = await Product.create(req.body)
-
-    res.status(201).json({
-        success: true,
-        product
+    cloudinary.url(req.body.name, {
+        width: 100,
+        height: 150,
+        crop: "fill",
+        fetch_format: "auto",
+        quality: 'auto',
+        secure: true
     })
+
+    cloudinary.uploader.upload(file.tempFilePath, {
+        folder: 'drnehaecommerse/products',
+    }).then(async (result) => {
+        console.log(result)
+
+        const data = {
+            ...req.body, createdUser, image: {
+                url: result.url,
+                public_id: result.public_id
+            }
+        }
+
+
+        console.log(data)
+
+        const product = await Product.create({
+            ...req.body, createdUser, image: {
+                url: result.url,
+                public_id: result.public_id
+            }
+        })
+
+        res.status(201).json({
+            success: true,
+            product
+        })
+
+    }).catch((err) => {
+        res.status(500).json({
+            success: false,
+            err
+        })
+    })
+
 })
+
 
 // Get all Products
 exports.getAllProducts = catchAsyncError(async (req, res, next) => {

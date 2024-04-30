@@ -5,11 +5,13 @@ import { useSelector } from 'react-redux'
 const LowerHeader = () => {
 
 
-    const isAuthenticated = useSelector((state) => state.user.isAuthenticated)
+    const { isAuthenticated, user } = useSelector((state) => state.user)
+    const data = useSelector((state) => state.user)
+    console.log(data)
     console.log(isAuthenticated)
     return (
         <>
-            <div className='lowerHeader'>
+            <div className='lowerHeader flex items-center'>
                 <div className='category-button-container'>
                     <i className="fa-solid fa-bars"></i> CATEGORIES
                     <div className='category-container'>
@@ -26,7 +28,7 @@ const LowerHeader = () => {
 
                 {
                     isAuthenticated ? (
-                        <div className='auth-container'>
+                        <div className='auth-container '>
 
                             <Link to='/logout' className='btn login-btn' >
                                 <i className="fa-solid fa-right-to-bracket"></i> Logout
@@ -40,6 +42,31 @@ const LowerHeader = () => {
                             <Link to='/cart' className='btn cart-btn'>
                                 <i className="fa-solid fa-cart-shopping"></i>
                             </Link>
+                            <div
+                                // className='category-button-container'
+                                className='profile-btn-container w-10 h-10  rounded-full text-black font-bold flex justify-center items-center'
+                                style={{ background: "#ECD39D" }}
+                            >
+                                {
+                                    isAuthenticated ? <h1 className='text-xl p-0'>{user.user.name.slice(0, 1).toUpperCase()}</h1> : ""
+                                }
+                                <div className='profile-container block'>
+                                    <Link className='link' to='/my-profile'>Profile</Link>
+                                    <Link className='link' to='/cart'>My Cart</Link>
+                                    <Link className='link' to='/my-wishlist'>My wishlist</Link>
+                                    <Link className='link' to='/my-orders'>My Orders</Link>
+                                    {
+                                        user.user.role === "admin" ? <Link className='link' to='/admin'>Admin</Link> : ''
+                                    }
+                                    {
+                                        user.user.role === "developer" ? <Link className='link' to='/admin'>Admin</Link> : ''
+                                    }
+
+                                </div>
+                            </div>
+
+
+
                         </div >
                     ) : (<div className='auth-container'>
 

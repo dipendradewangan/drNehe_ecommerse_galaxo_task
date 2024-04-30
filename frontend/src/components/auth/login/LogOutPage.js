@@ -24,3 +24,10 @@ const LogOutPage = () => {
 }
 
 export default LogOutPage
+
+
+
+
+
+
+                

@@ -9,6 +9,12 @@ const crypto = require("crypto")
 // register user
 exports.registerUser = catchAsyncError(async (req, res, next) => {
 
+    const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+        folder : "avatars",
+        width : 150,
+        crop: "scale"
+    })
+
     const { name, email, password } = req.body;
 
     const user = await User.create({
@@ -16,8 +22,8 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
         email,
         password,
         avatar: {
-            public_id: "sample_id",
-            url: "sample url"
+            public_id: myCloud.public_id,
+            url: myCloud.secure_url
         }
     })
 
@@ -62,7 +68,7 @@ exports.logoutUser = catchAsyncError(async (req, res, next) => {
         httpOnly: true,
         expires: new Date(Date.now())
     })
-    res.status(200).json({
+    res.status(200).json({ 
         success: true,
         message: "Logged out Successfully"
     })
@@ -183,11 +189,11 @@ exports.updatePassword = catchAsyncError(async (req, res, next) => {
 
 // update profile
 exports.updateProfile = catchAsyncError(async (req, res, next) => {
+    console.log(req.body)
     const newUserData = {
         email: req.body.email,
         name: req.body.name,
         phone : req.body.phone,
-        shippingDetails : req.body.shippingDetails,
     }
 
     // we will use coudinary later

@@ -1,8 +1,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const ConfirmOrderPage = () => {
+    const history = useNavigate()
     const { isAuthenticated } = useSelector(state => state.user)
     const { cartItems, shippingInfo } = useSelector(state => state.cart)
     console.log(cartItems)
@@ -17,6 +19,17 @@ const ConfirmOrderPage = () => {
     const tax = Subtotal * 0.18;
 
     const totalPrice = Subtotal + shippintCharge + tax;
+
+    const proceedToPayment = ()=>{
+        const data = {
+            Subtotal, 
+            shippintCharge,
+            tax,
+            totalPrice
+        }
+        sessionStorage.setItem("orderInfo", JSON.stringify(data))
+        history("/process/payment")
+    }
 
     return (
         <div className="bg-white mt-12 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-center">
@@ -79,7 +92,7 @@ const ConfirmOrderPage = () => {
                                     <h1 className='font-semibold my-1 text-gray-400'>{Subtotal}</h1>
                                     <h1 className='font-semibold my-1 text-gray-400'>{shippintCharge}</h1>
                                     <h1 className='font-semibold my-1 text-gray-400'>{gst}</h1>
-                                    <h1 className='font-semibold my-1 text-gray-400'> - {discountPrice}</h1>
+                                    <h1 className='font-semibold my-1 text-gray-400'> - {Math.round(discountPrice)}</h1>
                                 </div>
                             </div>
                             <div className=' border-t'>
@@ -88,7 +101,7 @@ const ConfirmOrderPage = () => {
                                     <h1 className='font-semibold my-1 text-lg'>Total:</h1>
                                     <h1 className='font-semibold my-1 text-lg'>{payableAmount}</h1>
                                 </div>
-                                <button className='w-full mt-3 p-2 font-bold hover:bg-yellow-600' style={{ background: "#ECD39D" }}>Order Now!</button>
+                                <button className='w-full mt-3 p-2 font-bold hover:bg-yellow-600' style={{ background: "#ECD39D" }} onClick={proceedToPayment}>Proceed To Payment</button>
                             </div>
                         </div>
                     </div>

@@ -1,8 +1,5 @@
 import React, { Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
-
-
-
 import HomePage from './Home/HomePage'
 import ProductPage from './products/ProductPage'
 import ProductDetail from './products/ProductDetail'
@@ -14,8 +11,11 @@ import CheckoutPage from '../auth/checkout/CheckoutPage'
 import AboutPage from './about/AboutPage'
 import ContactUsPage from './contact/ContectUsPage'
 import BlogsPage from './blogs/BlogsPage'
-import ProtectedRoute from '../protectedRoute/ProtectedRoute'
 import ConfirmOrderPage from '../auth/confirmOrder/ConfirmOrderPage'
+import Admin from '../admin/Admin'
+import Profile from '../auth/profile/Profile'
+import UpdateProfile from '../auth/profile/UpdateProfile'
+import Payment from '../auth/payment/Payment'
 
 
 const Section = () => {
@@ -38,10 +38,17 @@ const Section = () => {
                 <Route exact path='/logout' element={<LogOutPage />} />
 
                 <Route exact path='/cart' element={<CartPage />} />
+                <Route exact path='/my-profile' element={<Profile />} />
+                <Route exact path='/update-profile' element={<UpdateProfile/>}/>
 
                 <Route exact path='/checkout' element={<CheckoutPage />} />
-                
+
                 <Route exact path='/order/confirm' element={<ConfirmOrderPage />} />
+
+                <Route exact path='/process/payment' element={<Payment />} />
+
+                {/* admin */}
+                <Route exact path='/admin' element={<Admin />} />
             </Routes>
 
 

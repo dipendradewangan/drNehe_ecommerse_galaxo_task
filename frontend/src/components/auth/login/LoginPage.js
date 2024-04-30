@@ -14,9 +14,8 @@ const LoginPage = () => {
     const history = useNavigate()
     const dispatch = useDispatch()
     const { isAuthenticated, error, user } = useSelector((state) => state.user)
-    console.log(user)
 
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors },reset } = useForm()
 
     const handleLogin = ({ email, password }) => {
         dispatch(userLogin(email, password))
@@ -24,11 +23,14 @@ const LoginPage = () => {
 
     useEffect(() => {
         if (error) {
+            alert(error)
+            reset()
             dispatch(clearErrors())
         }
 
         if (isAuthenticated) {
             history('/')
+            reset()
         }
     }, [dispatch, error, history])
 

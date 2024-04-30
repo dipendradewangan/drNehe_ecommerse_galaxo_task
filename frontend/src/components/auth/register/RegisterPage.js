@@ -1,30 +1,49 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from "react-redux"
+import { useSelector } from 'react-redux'
 
 
-import { registerUser } from '../../../redux/action/userAction'
+import { clearErrors, registerUser } from '../../../redux/action/userAction'
 
 const RegisterPage = () => {
+    const history = useNavigate()
     const dispatch = useDispatch()
     const [bothpasswordMatch, setBothpasswordMatch] = useState(false)
+    // const { isAuthenticated, error, user,  } = useSelector((state) => state.user)
 
-    const { register, handleSubmit, formState: { errors }, watch } = useForm()
 
+    const { error, isAuthenticated } = useSelector((state) => state.user)
+    console.log(error)
 
+    const { register, handleSubmit, formState: { errors }, watch, reset } = useForm()
+
+    // register data submit
     const resiterSubmit = (data) => {
-        console.log(errors)
         if (data.password === data.confirmPassword) {
             setBothpasswordMatch(false)
             dispatch(registerUser(data.name, data.email, data.password))
-
+            reset()
         }
         else {
             setBothpasswordMatch(true)
         }
     }
 
+    useEffect(() => {
+        if (error) {
+            alert(error.message)
+            dispatch(clearErrors())
+            reset()
+        }
+
+        if (isAuthenticated) {
+            history("/")
+            reset()
+        }
+
+    }, [dispatch, error, history])
 
 
     return (

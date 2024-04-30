@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { Navigate, useNavigate } from 'react-router-dom'
@@ -6,15 +6,15 @@ import { saveShippingInfo } from '../../../redux/action/cartActions'
 
 const CheckoutPage = () => {
     const history = useNavigate()
-    const { register, handleSubmit, formState: { errors }, watch } = useForm()
+    const { register, handleSubmit, formState: { errors } } = useForm()
     const dispatch = useDispatch()
     const userData = useSelector(state => state.user)
 
     const shippingDetailSubmit = (data) => {
         console.log(data)
         dispatch(saveShippingInfo(data))
-
-        history("/order/confirm")
+        history("/process/payment")
+        
     }
     return (
         <div>
