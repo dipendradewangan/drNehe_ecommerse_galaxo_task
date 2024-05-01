@@ -1,7 +1,6 @@
 import React, { useEffect } from "react"
 import { getProduct } from "../../redux/action/productAction"
 import { useDispatch, useSelector } from "react-redux"
-import image from "../../images/oilImage.jpg"
 import { Link } from "react-router-dom"
 
 
@@ -11,6 +10,7 @@ const Products = () => {
 
     const data = useSelector((state) => state)
     const { loading, product } = useSelector((state) => state.product)
+    console.log(product)
 
     useEffect(() => {
         dispatch(getProduct())
@@ -29,8 +29,8 @@ const Products = () => {
                             <div className="group relative cursor-pointer">
                                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden  bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                                     <img
-                                        src={prod.images.url === 'sample url' ? image : prod.images.url}
-                                        alt={prod.imageAlt}
+                                        src={prod.image.url}
+                                        alt={prod.name}
                                         className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                                     />
                                 </div>

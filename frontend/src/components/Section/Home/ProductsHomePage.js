@@ -47,7 +47,7 @@ const ProductsHomePage = () => {
                                 featuredCategories.map((prod, index) =>
                                     <div key={index} className='featured-category-product'>
                                         <div className='product-image-container'>
-                                            <img className={prod.images} alt='product' />
+                                            <img className={image} alt='product' />
                                         </div>
                                         <p className='product-name'>{prod.name}</p>
                                     </div>
@@ -220,8 +220,8 @@ const ProductsHomePage = () => {
                                 loading ? "this is loading" : product && product.map((prod, index) => (
                                     <Link to={`/product/${prod._id}`} key={index} className='productBox'>
                                         <div className='imageBox'>
-                                            {/* <img src={prod.images.url === "sample url" ? image : prod.images.url} alt={prod.images.url} /> */}
-                                            <img src={image} alt={prod.images.url} />
+                                            {/* <img src={prod.image.url === "sample url" ? image : prod.image.url} alt={prod.image.url} /> */}
+                                            <img src={prod.image.url} alt={prod.image.url} />
                                             
                                         </div>
                                         <div className='productInfoBox'>
@@ -255,8 +255,8 @@ const ProductsHomePage = () => {
                                 loading ? "this is loading" : product && product.map((prod, index) => (
                                     <Link to={`/product/${prod._id}`} key={index} className='productBox'>
                                         <div className='imageBox'>
-                                            {/* <img src={prod.images.url === "sample url" ? image : prod.images.url} alt={prod.images.url} /> */}
-                                            <img src={image} alt={prod.images.url} />
+                                            {/* <img src={prod.image.url === "sample url" ? image : prod.image.url} alt={prod.image.url} /> */}
+                                            <img src={prod.image.url} alt={prod.name} />
                                         </div>
                                         <div className='productInfoBox'>
                                             <p className='productName'>
@@ -287,8 +287,8 @@ const ProductsHomePage = () => {
                                 loading ? "this is loading" : product && product.map((prod, index) => (
                                     <Link to={`/product/${prod._id}`} key={index} className='productBox'>
                                         <div className='imageBox'>
-                                            {/* <img src={prod.images.url === "sample url" ? image : prod.images.url} alt={prod.images.url} /> */}
-                                            <img src={image} alt={prod.images.url} />
+                                            {/* <img src={prod.image.url === "sample url" ? image : prod.image.url} alt={prod.image.url} /> */}
+                                            <img src={prod.image.url} alt={prod.image.url} />
                                         </div>
                                         <div className='productInfoBox'>
                                             <p className='productName'>

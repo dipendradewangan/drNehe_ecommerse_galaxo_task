@@ -1,14 +1,10 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment } from 'react'
 import profileLogo from '../../../images/profileLogo.jpg'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 
 import "./profile.css"
-import { clearErrors, loadUser } from '../../../redux/action/userAction'
-import { UPDATE_PROFILE_RESET } from '../../../redux/constant/userContants'
-
 const Profile = () => {
-    const dispatch = useDispatch()
 
     const { user } = useSelector((state) => state.user)
 
@@ -33,7 +29,7 @@ const Profile = () => {
 
                         <h1 className='text-gray-500 font-bold text-xl'>Email</h1>
                         <h1 className='text-gray-700 font-semibold text-sm mb-3'>{user.user.email}</h1>
-                        
+
                         <h1 className='text-gray-500 font-bold text-xl'>Joined On</h1>
                         <h1 className='text-gray-700 font-semibold text-sm mb-3'>{new Date(user.user.createdAt).getDate()}-{new Date(user.user.createdAt).getMonth() + 1}-{new Date(user.user.createdAt).getFullYear()}</h1>
 

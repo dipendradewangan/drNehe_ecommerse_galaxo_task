@@ -32,11 +32,31 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    subCategory: {
+        type: String,
+        required: true
+    },
     stock: {
         type: Number,
         required: [true, "Please enter product stock"],
         maxLength: [4, "Product cannot be exceed 4 charectors"],
         default: 1
+    },
+    isTopSelling: {
+        type: Boolean,
+        default: false
+    },
+    isTrending: {
+        type: Boolean,
+        default: false
+    },
+    isFeatured: {
+        type: Boolean,
+        default: false
+    },
+    isRecommended: {
+        type: Boolean,
+        default: false
     },
     numOfReviews: {
         type: Number,

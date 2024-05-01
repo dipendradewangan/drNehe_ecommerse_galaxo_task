@@ -3,17 +3,16 @@ import "./LoginPage.css"
 import { Link, } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { clearErrors, userLogin } from '../../../redux/action/userAction'
-import { useDispatch, useSelector } from 'react-redux'
+import {  useDispatch, useSelector } from 'react-redux'
 import { useNavigate, Navigate } from 'react-router-dom'
 
 
 
 
 const LoginPage = () => {
-
-    const history = useNavigate()
     const dispatch = useDispatch()
-    const { isAuthenticated, error, user } = useSelector((state) => state.user)
+    const history = useNavigate()
+    const { isAuthenticated, error} = useSelector((state) => state.user)
 
     const { register, handleSubmit, formState: { errors },reset } = useForm()
 
@@ -32,7 +31,7 @@ const LoginPage = () => {
             history('/')
             reset()
         }
-    }, [dispatch, error, history])
+    }, [dispatch, error, history, isAuthenticated, reset])
 
     return (
         <div>

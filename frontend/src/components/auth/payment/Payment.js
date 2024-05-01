@@ -1,21 +1,11 @@
-import React, { Fragment, useRef } from 'react'
-import {
-    CardNumberElement,
-    CardCvcElement,
-    CardExpiryElement,
-    useStripe,
-    useElements
-} from '@stripe/react-stripe-js'
-import axios from 'axios'
+import React, { Fragment} from 'react'
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
 
 const Payment = () => {
-    const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"))
-    const payBtn = useRef(null)
-
+    
     const submitHandler = ()=>{
-
+        console.log("this is submit")
     }
     return (
         <Fragment>
@@ -24,8 +14,7 @@ const Payment = () => {
                     <form onSubmit={(e)=>submitHandler(e)}>
                         <h1>Card Info</h1>
                         <div>
-                            <CreditCardIcon/>
-                            <CardNumberElement />
+                            this is card info
                         </div>
                     </form>
                 </div>

@@ -38,7 +38,7 @@ const ProductDetail = () => {
 
     useEffect(() => {
         dispatch(getProductDetails(params.id))
-    }, [dispatch])
+    }, [dispatch, params])
 
 
     const addToCartHandler = () => {
@@ -59,7 +59,7 @@ const ProductDetail = () => {
                         <div>
                             <div className='flex justify-center items-center gap-6 border-3 p-5'>
                                 <div className='w-6/12 flex justify-center items-center '>
-                                    <img src={image} alt='image' className='w-full' />
+                                    <img src={image} alt='imagfdsafe' className='w-full' />
                                 </div>
                                 <div>
                                     <div className='mb-2'>

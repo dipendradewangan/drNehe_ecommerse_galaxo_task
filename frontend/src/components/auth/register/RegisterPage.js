@@ -43,7 +43,7 @@ const RegisterPage = () => {
             reset()
         }
 
-    }, [dispatch, error, history])
+    }, [dispatch, error, history, reset, isAuthenticated])
 
 
     return (

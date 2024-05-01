@@ -4,7 +4,7 @@ import Footer from '../Homepage/Footer/Footer'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProductDetails } from '../../redux/action/productAction'
-import image from '../../images/oilImage.jpg'
+// import image from '../../images/oilImage.jpg'
 import { addItemsToCart } from '../../redux/action/cartActions'
 const ProductDetail = () => {
     const params = useParams()
@@ -34,10 +34,12 @@ const ProductDetail = () => {
 
     const product = useSelector((state) => state.productDetails.product.product)
     const loading = useSelector((state) => state.productDetails.loading)
-    console.log(loading)
-    console.log(product)
+    // console.log(loading)
+    // console.log(product)
+    console.log(product.image.url)
 
     useEffect(() => {
+
         dispatch(getProductDetails(params.id))
     }, [dispatch])
 
@@ -54,13 +56,13 @@ const ProductDetail = () => {
 
 
             <div className="bg-white mt-12 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
+                this is product
                 {
                     loading ? "this is loading " : product && (
                         <div>
                             <div className='flex justify-center items-center gap-6 border-3 p-5'>
                                 <div className='w-6/12 flex justify-center items-center '>
-                                    <img src={image} alt='image' className='w-full' />
+                                    <img src={product.image.url} alt='image' className='w-full' />
                                 </div>
                                 <div>
                                     <div className='mb-2'>

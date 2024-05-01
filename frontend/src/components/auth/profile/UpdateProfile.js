@@ -6,8 +6,8 @@ import { Navigate } from 'react-router-dom'
 
 const UpdateProfile = () => {
     const dispatch = useDispatch()
-    const {isAuthenticated, error, loading} = useSelector((state)=>state.user)
-    const data = useSelector((state)=>state.user)
+    const { isAuthenticated } = useSelector((state) => state.user)
+    const data = useSelector((state) => state.user)
     console.log(data)
     const [avatarPreview, setAvatarPreview] = useState(profileLogo)
     const [name, setName] = useState("")

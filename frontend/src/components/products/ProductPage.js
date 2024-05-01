@@ -9,9 +9,9 @@ import React from 'react'
 const ProductPage = () => {
     return (
         <div>
-            <Header />
+            {/* <Header /> */}
             <Products />
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }
